@@ -26,7 +26,7 @@ pipeline {
                 echo '========================================='
                 sh '''
                     cmake -B ${WORKSPACE}/build/stm32 \
-                        -S ${WORKSPACE}
+                        -S ${WORKSPACE}/stm32f103c8tx
                 '''
             }
         }
@@ -38,6 +38,7 @@ pipeline {
                 echo '========================================='
                 sh '''
                     cmake --build ${WORKSPACE}/build/stm32 \
+                        --config ${BUILD_TYPE} \
                         -j$(nproc)
                 '''
             }
@@ -56,7 +57,7 @@ pipeline {
             echo '========================================='
             echo 'Cleaning up workspace...'
             echo '========================================='
-            sh 'rm -rf build/obj build/tmp || true'
+            sh 'rm -rf ${WORKSPACE}/build/stm32'
         }
     }
 } 
