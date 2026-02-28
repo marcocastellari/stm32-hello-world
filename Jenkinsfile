@@ -53,7 +53,7 @@ pipeline {
             archiveArtifacts artifacts: 'build/stm32/**/*.elf, build/stm32/**/*.bin'
         }
 
-        always {
+        cleanup {
             echo '========================================='
             echo 'Cleaning up workspace...'
             echo '========================================='
