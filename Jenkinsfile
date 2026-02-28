@@ -50,7 +50,7 @@ pipeline {
             echo '========================================='
             echo 'Build completed successfully'
             echo '========================================='
-            archiveArtifacts artifacts: 'build/stm32/**/*.elf, build/stm32/**/*.bin'
+            archiveArtifacts artifacts: 'build/stm32/**/*.elf, build/stm32/**/*.map'
         }
 
         cleanup {
